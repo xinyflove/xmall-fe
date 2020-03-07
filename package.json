@@ -1,0 +1,29 @@
+{
+  "name": "xmall-fe",
+  "version": "1.0.0",
+  "description": "xmall前端页面",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xinyflove/xmall-fe.git"
+  },
+  "author": "Peak Xin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xinyflove/xmall-fe/issues"
+  },
+  "homepage": "https://github.com/xinyflove/xmall-fe#readme",
+  "devDependencies": {
+    "css-loader": "^0.28.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "style-loader": "^0.17.0",
+    "webpack": "^1.15.0"
+  },
+  "dependencies": {}
+}
