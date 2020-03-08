@@ -2,7 +2,7 @@
  * @Author: Peak Xin 
  * @Date: 2020-03-07 21:11:27 
  * @Last Modified by: Peak Xin
- * @Last Modified time: 2020-03-08 12:03:50
+ * @Last Modified time: 2020-03-08 18:10:57
  */
 var webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
@@ -41,6 +41,14 @@ var config = {
             { test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader") },
             { test: /\.(gif|png|jpg|woff|svg|eot|ttf)\??.*$/, loader: 'url-loader?limit=100&name=resource/[name].[ext]' },
         ]
+    },
+    resolve: {
+        alias: {
+            util: __dirname + '/src/util',
+            page: __dirname + '/src/page',
+            service: __dirname + '/src/service',
+            image: __dirname + '/src/image',
+        }
     },
     plugins: [
         // 独立通用模块到js/base.js
