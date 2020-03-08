@@ -2,9 +2,12 @@
  * @Author: Peak Xin 
  * @Date: 2020-03-07 22:00:16 
  * @Last Modified by: Peak Xin
- * @Last Modified time: 2020-03-07 22:13:10
+ * @Last Modified time: 2020-03-08 11:54:12
  */
 
  body {
      background: #ccc;
+     background-image: url(../../image/banner1.jpg);
+     color: green;
+     font-size: 30px;
  }

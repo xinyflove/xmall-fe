@@ -2,11 +2,15 @@
  * @Author: Peak Xin 
  * @Date: 2020-03-07 21:11:27 
  * @Last Modified by: Peak Xin
- * @Last Modified time: 2020-03-08 10:49:59
+ * @Last Modified time: 2020-03-08 12:03:50
  */
 var webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var HtmlWebpackPlugin = require("html-webpack-plugin");
+
+// 环境变量配置，dev / online
+var WEBPACK_ENV         = process.env.WEBPACK_ENV || 'dev';
+
 // 获取html-webpack-plugin参数的方法
 var getHtmlConfig = function (name) {
     return {
@@ -26,6 +30,7 @@ var config = {
     },
     output: {
         path: './dist',
+        publicPath : '/dist',
         filename: 'js/[name].js'
     },
     externals: {// 引入外部模块
@@ -33,7 +38,8 @@ var config = {
     },
     module: {
         loaders: [
-            { test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader") }
+            { test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader") },
+            { test: /\.(gif|png|jpg|woff|svg|eot|ttf)\??.*$/, loader: 'url-loader?limit=100&name=resource/[name].[ext]' },
         ]
     },
     plugins: [
@@ -49,5 +55,9 @@ var config = {
         new HtmlWebpackPlugin(getHtmlConfig('login')),
     ]
 };
+
+if('dev' === WEBPACK_ENV){
+    config.entry.common.push('webpack-dev-server/client?http://localhost:8088/');
+}
 
 module.exports = config;
