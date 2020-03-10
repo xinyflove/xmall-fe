@@ -2,10 +2,11 @@
  * @Author: Peak Xin 
  * @Date: 2020-03-08 16:14:59 
  * @Last Modified by: Peak Xin
- * @Last Modified time: 2020-03-09 22:09:31
+ * @Last Modified time: 2020-03-10 22:10:37
  */
 
 'use strict';
+var Hogan = require('hogan.js');
 
 var conf = {
     serverHost: ''
@@ -44,6 +45,12 @@ var _xm = {
         var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)');
         var result = window.location.search.substr(1).match(reg);
         return result ? decodeURIComponent(result[2]) : null;
+    }
+    // 渲染html模版
+    , renderHtml: function (htmlTemplate, data) {
+        var template = Hogan.compile(htmlTemplate),
+            result = template.render(data);
+        return result;
     }
     // 统一登录处理
     , doLogin: function () {
