@@ -2,23 +2,23 @@
  * @Author: Peak Xin 
  * @Date: 2020-03-12 21:14:00 
  * @Last Modified by: Peak Xin
- * @Last Modified time: 2020-03-12 22:10:11
+ * @Last Modified time: 2020-03-15 17:15:06
  */
 
- 'use strict'
- require('./index.css');
- var _xm = require('util/xm.js');
- var _user = require('service/user-service.js');
- var _cart   = require('service/cart-service.js');
- // 导航
+'use strict'
+require('./index.css');
+var _xm = require('util/xm.js');
+var _user = require('service/user-service.js');
+var _cart = require('service/cart-service.js');
+// 导航
 var nav = {
-    init: function(){
+    init: function () {
         this.bindEvent();
         this.loadUserInfo();
         this.loadCartCount();
         return this;
     }
-    , bindEvent: function(){
+    , bindEvent: function () {
         // 登录点击事件
         $('.js-login').click(function () {
             _xm.doLogin();

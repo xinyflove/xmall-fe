@@ -2,14 +2,18 @@
  * @Author: Peak Xin 
  * @Date: 2020-03-07 21:16:24 
  * @Last Modified by: Peak Xin
- * @Last Modified time: 2020-03-12 21:14:57
+ * @Last Modified time: 2020-03-15 20:22:29
  */
 
 'use strict';
 require('page/common/nav/index.js');
+require('page/common/header/index.js');
+var navSide = require('page/common/nav-side/index.js');
 var _xm = require('util/xm.js');
 
-
+navSide.init({
+    name: 'pass-update'
+});
 
 //require('./index.css');
 //require('../module.js');

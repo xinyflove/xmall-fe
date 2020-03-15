@@ -1,0 +1,27 @@
+/*
+ * @Author: Peak Xin 
+ * @Date: 2020-03-15 17:49:12 
+ * @Last Modified by: Peak Xin
+ * @Last Modified time: 2020-03-15 20:21:40
+ */
+/* 导航主题 */
+.nav-side {
+    float: left;
+    width: 130px;
+    min-height: 100px;
+}
+.nav-side .nav-item {
+    line-height: 25px;
+    font-size: 13px;
+}
+.nav-side .nav-item .link {
+    color: #888;
+}
+.nav-side .nav-item.active .link {
+    color: #c60023;
+}
+/* 右侧内容区 */
+.content.with-nav {
+    float: left;
+    width: 950px;
+}
