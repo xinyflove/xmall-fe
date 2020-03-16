@@ -2,7 +2,7 @@
  * @Author: Peak Xin 
  * @Date: 2020-03-08 16:14:59 
  * @Last Modified by: Peak Xin
- * @Last Modified time: 2020-03-10 22:21:54
+ * @Last Modified time: 2020-03-16 22:46:24
  */
 
 'use strict';
@@ -79,7 +79,7 @@ var _xm = {
     // 统一登录处理
     , doLogin: function () {
         window.
-        location.href = '.login.html?redirect=' + encodeURIComponent(window.location.href);
+        location.href = '.user-login.html?redirect=' + encodeURIComponent(window.location.href);
     }
     // 跳转到首页
     , goHome : function() {

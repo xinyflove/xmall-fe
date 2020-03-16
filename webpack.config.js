@@ -2,7 +2,7 @@
  * @Author: Peak Xin 
  * @Date: 2020-03-07 21:11:27 
  * @Last Modified by: Peak Xin
- * @Last Modified time: 2020-03-15 20:31:36
+ * @Last Modified time: 2020-03-16 22:52:37
  */
 var webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
@@ -27,7 +27,7 @@ var config = {
     entry: {
         'common': ['./src/page/common/index.js'],// 通用模块js
         'index': ['./src/page/index/index.js'],
-        'login': ['./src/page/login/index.js'],
+        'user-login': ['./src/page/user-login/index.js'],
         'result': ['./src/page/result/index.js'],
     },
     output: {
@@ -64,7 +64,7 @@ var config = {
         new ExtractTextPlugin('css/[name].css'),
         // html模版的处理
         new HtmlWebpackPlugin(getHtmlConfig('index', '首页')),
-        new HtmlWebpackPlugin(getHtmlConfig('login', '用户登录')),
+        new HtmlWebpackPlugin(getHtmlConfig('user-login', '用户登录')),
         new HtmlWebpackPlugin(getHtmlConfig('result', '操作结果')),
     ]
 };
