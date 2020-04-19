@@ -2,7 +2,7 @@
  * @Author: Peak Xin 
  * @Date: 2020-03-07 21:11:27 
  * @Last Modified by: Peak Xin
- * @Last Modified time: 2020-03-16 22:52:37
+ * @Last Modified time: 2020-04-19 22:29:08
  */
 var webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
@@ -27,7 +27,9 @@ var config = {
     entry: {
         'common': ['./src/page/common/index.js'],// 通用模块js
         'index': ['./src/page/index/index.js'],
-        'user-login': ['./src/page/user-login/index.js'],
+        'user-login': ['./src/page/user-login/index.js'],// 用户登录
+        'user-register': ['./src/page/user-register/index.js'],// 用户注册
+        'user-pass-reset': ['./src/page/user-pass-reset/index.js'],// 找回密码
         'result': ['./src/page/result/index.js'],
     },
     output: {
@@ -65,6 +67,8 @@ var config = {
         // html模版的处理
         new HtmlWebpackPlugin(getHtmlConfig('index', '首页')),
         new HtmlWebpackPlugin(getHtmlConfig('user-login', '用户登录')),
+        new HtmlWebpackPlugin(getHtmlConfig('user-register', '用户注册')),
+        new HtmlWebpackPlugin(getHtmlConfig('user-pass-reset', '找回密码')),
         new HtmlWebpackPlugin(getHtmlConfig('result', '操作结果')),
     ]
 };

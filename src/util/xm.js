@@ -2,7 +2,7 @@
  * @Author: Peak Xin 
  * @Date: 2020-03-08 16:14:59 
  * @Last Modified by: Peak Xin
- * @Last Modified time: 2020-03-16 22:46:24
+ * @Last Modified time: 2020-04-19 22:07:40
  */
 
 'use strict';
@@ -68,7 +68,7 @@ var _xm = {
             return !!value;
         }
         // 手机号验证
-        if ('phone' === type) {
+        if ('mobile' === type) {
             return /^1\d{10}$/.test(value);
         }
         // 邮箱格式验证
@@ -79,7 +79,7 @@ var _xm = {
     // 统一登录处理
     , doLogin: function () {
         window.
-        location.href = '.user-login.html?redirect=' + encodeURIComponent(window.location.href);
+        location.href = './user-login.html?redirect=' + encodeURIComponent(window.location.href);
     }
     // 跳转到首页
     , goHome : function() {
