@@ -26,11 +26,11 @@ var getHtmlConfig = function (name, title) {
 var config = {
     entry: {
         'common': ['./src/page/common/index.js'],// 通用模块js
-        'index': ['./src/page/index/index.js'],
+        'index': ['./src/page/index/index.js'],// 首页
         'user-login': ['./src/page/user-login/index.js'],// 用户登录
         'user-register': ['./src/page/user-register/index.js'],// 用户注册
         'user-pass-reset': ['./src/page/user-pass-reset/index.js'],// 找回密码
-        'result': ['./src/page/result/index.js'],
+        'result': ['./src/page/result/index.js'],// 操作结果页
     },
     output: {
         path: './dist',

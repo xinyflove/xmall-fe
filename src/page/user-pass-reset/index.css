@@ -4,19 +4,18 @@
  * @Last Modified by: Peak Xin
  * @Last Modified time: 2020-04-19 22:23:25
  */
-/* 最外部容器 */
-.page-wrap {
+/* 最外层容器 */
+.page-wrap{
     padding: 40px 0;
-    background: #e72955;
 }
 /* 表单框 */
-.user-con {
+.user-con{
     position: relative;
     margin: 0 auto;
     width: 400px;
     background: #fff;
 }
-.user-con .user-title {
+.user-con .user-title{
     text-align: center;
     padding: 10px 0;
     border-bottom: 1px solid #ddd;
@@ -24,10 +23,10 @@
     font-weight: bold;
     color: #666;
 }
-.user-con .user-box {
+.user-con .user-box{
     padding: 20px;
 }
-/* 错误提示 */
+/* 错误提示框 */
 .user-con .user-box .error-item{
     position: relative;
     padding: 4px 0 4px 40px;
@@ -38,19 +37,28 @@
     display: none;
 }
 /* 错误图标 */
-.user-con .user-box .error-icon {
+.user-con .user-box .error-icon{
     position: absolute;
     left: 14px;
     top: 50%;
     font-size: 14px;
     margin-top: -7px;
 }
-
-.user-con .user-item {
+/* 每一步的容器 */
+.user-con .step-con{
+    display: none;
+}
+/* 输入框提示信息 */
+.user-con .user-item-text{
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+/* 输入框容器 */
+.user-con .user-item{
     position: relative;
     margin-bottom: 20px;
 }
-.user-con .user-item .user-label {
+.user-con .user-item .user-label{
     position: absolute;
     left: 1px;
     top: 1px;
@@ -63,7 +71,7 @@
     text-align: center;
     border-right: 1px solid #bdbdbd;
 }
-.user-con .user-item .user-content {
+.user-con .user-item .user-content{
     padding: 10px 0 10px 50px;
     width: 308px;
     height: 18px;
@@ -72,14 +80,14 @@
     border: 1px solid #bdbdbd;
     outline: none;
 }
-.user-con .btn-submit {
+.user-con .btn-submit{
     width: 100%;
     padding: 2px 0;
     text-align: center;
     font-size: 20px;
 }
 /* 跳转链接 */
-.user-con .link-item {
+.user-con .link-item{
     text-align: right;
     margin-top: 10px;
 }
