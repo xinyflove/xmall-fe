@@ -2,7 +2,7 @@
  * @Author: Peak Xin 
  * @Date: 2020-03-12 21:14:00 
  * @Last Modified by: Peak Xin
- * @Last Modified time: 2020-03-15 17:15:06
+ * @Last Modified time: 2020-05-11 00:04:22
  */
 
 'use strict'
@@ -38,7 +38,8 @@ var nav = {
     }
     // 加载用户信息
     , loadUserInfo: function () {
-        _user.checkLogin(function (res) {
+        var token = _xm.getLocalStorage('token');
+        _user.checkLogin(token, function (res) {
             $('.user.not-login').hide().siblings('.user.login').show()
                 .find('.username').text(res.username);
         }, function (errMsg) {

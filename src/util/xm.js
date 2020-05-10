@@ -2,14 +2,14 @@
  * @Author: Peak Xin 
  * @Date: 2020-03-08 16:14:59 
  * @Last Modified by: Peak Xin
- * @Last Modified time: 2020-04-19 22:07:40
+ * @Last Modified time: 2020-05-11 00:10:41
  */
 
 'use strict';
 var Hogan = require('hogan.js');
 
 var conf = {
-    serverHost: ''
+    serverHost: 'http://127.0.0.1:8000/api'
 };
 var _xm = {
     // 网络请求
@@ -21,13 +21,13 @@ var _xm = {
             dataType: param.type || 'json',
             data: param.data || '',
             success: function (res) {
-                if (0 === res.status) {// 请求成功
+                if (true === res.status) {// 请求成功
                     typeof param.success === 'function' && param.success(res.data, res.msg);
                 }
-                else if (10 === res.status) {// 没有登录状态，需要强制登录
+                /*else if (10 === res.status) {// 没有登录状态，需要强制登录
                     _this.doLogin();
-                }
-                else if (1 === res.status) {// 请求数据错误
+                }*/
+                else if (false === res.status) {// 请求数据错误
                     typeof param.error === 'function' && param.error(res.msg);
                 }
             },
@@ -79,11 +79,38 @@ var _xm = {
     // 统一登录处理
     , doLogin: function () {
         window.
-        location.href = './user-login.html?redirect=' + encodeURIComponent(window.location.href);
+            location.href = './user-login.html?redirect=' + encodeURIComponent(window.location.href);
     }
     // 跳转到首页
-    , goHome : function() {
+    , goHome: function () {
         window.location.href = './index.html';
+    }
+    // 设置本地存储
+    , setLocalStorage: function (key, val) {
+        var exp = new Date().getTime() + 2 * 24 * 60 * 60 * 100;  //令牌过期时间
+        var obj = {
+            val: val,
+            exp: exp
+        };
+        localStorage.setItem(key, JSON.stringify(obj));
+    }
+    // 获取本地存储
+    , getLocalStorage: function (key) {
+        var info = localStorage.getItem(key);
+        if (info) {
+            info = JSON.parse(info);
+            if (info.exp > new Date().getTime()) {
+                return info.val;
+            }
+            else {
+                this.deleteLocalStorage('token');
+            }
+        }
+        return '';
+    }
+    // 删除本地存储
+    , deleteLocalStorage: function (key) {
+        return localStorage.removeItem(key);
     }
 };
 

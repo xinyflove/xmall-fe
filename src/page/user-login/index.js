@@ -2,21 +2,21 @@
  * @Author: Peak Xin 
  * @Date: 2020-03-07 21:15:00 
  * @Last Modified by: Peak Xin
- * @Last Modified time: 2020-04-19 13:43:16
+ * @Last Modified time: 2020-05-10 23:57:02
  */
 
 'use strict';
 require('./index.css');
 require('page/common/nav-simple/index.js');
-var _user   = require('service/user-service.js');
+var _user = require('service/user-service.js');
 var _xm = require('util/xm.js');
 
 // 表单里的错误提示
 var formError = {
-    show : function(errMsg){
+    show: function (errMsg) {
         $('.error-item').show().find('.err-msg').text(errMsg);
     },
-    hide : function(){
+    hide: function () {
         $('.error-item').hide().find('.err-msg').text('');
     }
 };
@@ -35,8 +35,7 @@ var page = {
         // 如果按下回车，也进行提交
         $('.user-content').keyup(function (e) {
             // keyCode == 13 表示回车键
-            if (e.keyCode === 13)
-            {
+            if (e.keyCode === 13) {
                 _this.submit();
             }
         });
@@ -47,23 +46,22 @@ var page = {
             username: $.trim($('#username').val()),
             password: $.trim($('#password').val())
         }
-        // 表单验证结果
-        , validateResult = this.formValidate(formData);
+            // 表单验证结果
+            , validateResult = this.formValidate(formData);
 
-        if (validateResult.status)
-        {
+        if (validateResult.status) {
             // 验证成功，提交
-            _user.login(formData
-                , function (res) {
-                    window.location.href = _xm.getUrlParam('redirect') || './index.html';
-                }
+            _user.login(formData, function (res) {
+                // 保存登录token
+                _xm.setLocalStorage('token', res.token);
+                window.location.href = _xm.getUrlParam('redirect') || './index.html';
+            }
                 , function (errMsg) {
                     formError.show(errMsg);
                 }
             );
         }
-        else
-        {
+        else {
             // 验证失败，错误提示
             formError.show(validateResult.msg);
         }
@@ -75,13 +73,11 @@ var page = {
             msg: ''
         }
 
-        if (!_xm.validate(formData.username, 'require'))
-        {
+        if (!_xm.validate(formData.username, 'require')) {
             result.msg = '用户名不能为空';
             return result;
         }
-        if (!_xm.validate(formData.password, 'require'))
-        {
+        if (!_xm.validate(formData.password, 'require')) {
             result.msg = '密码不能为空';
             return result;
         }
@@ -92,6 +88,6 @@ var page = {
         return result;
     }
 };
-$(function(){
+$(function () {
     page.init();
 });

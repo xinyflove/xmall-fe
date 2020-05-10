@@ -2,7 +2,7 @@
  * @Author: Peak Xin 
  * @Date: 2020-03-12 21:44:32 
  * @Last Modified by: Peak Xin
- * @Last Modified time: 2020-03-12 22:01:26
+ * @Last Modified time: 2020-05-11 00:10:49
  */
 
 'use strict';
@@ -13,7 +13,7 @@ var _user = {
     // 用户登录
     login: function (userInfo, resolve, reject) {
         _xm.request({
-            url: _xm.getServerUrl('/user/login.do'),
+            url: _xm.getServerUrl('/v1/user/login'),
             data: userInfo,
             method: 'POST',
             success: resolve,
@@ -44,9 +44,10 @@ var _user = {
         });
     }
     // 检查登录状态
-    , checkLogin: function (resolve, reject) {
+    , checkLogin: function (token, resolve, reject) {
         _xm.request({
-            url: _xm.getServerUrl('/user/get_user_info.do'),
+            url: _xm.getServerUrl('/v1/user/login_info'),
+            header: {token: token},
             method: 'POST',
             success: resolve,
             error: reject
