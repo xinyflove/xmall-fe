@@ -2,7 +2,7 @@
  * @Author: Peak Xin 
  * @Date: 2020-03-12 21:44:32 
  * @Last Modified by: Peak Xin
- * @Last Modified time: 2020-05-11 00:10:49
+ * @Last Modified time: 2020-05-11 22:37:05
  */
 
 'use strict';
@@ -23,7 +23,7 @@ var _user = {
     // 检查用户名
     , checkUsername: function (username, resolve, reject) {
         _xm.request({
-            url: _xm.getServerUrl('/user/check_valid.do'),
+            url: _xm.getServerUrl('/v1/user/check_valid'),
             data: {
                 type: 'username',
                 str: username
@@ -36,7 +36,7 @@ var _user = {
     // 用户注册
     , register: function (userInfo, resolve, reject) {
         _xm.request({
-            url: _xm.getServerUrl('/user/register.do'),
+            url: _xm.getServerUrl('/v1/user/register'),
             data: userInfo,
             method: 'POST',
             success: resolve,

@@ -2,7 +2,7 @@
  * @Author: Peak Xin 
  * @Date: 2020-03-12 22:00:14 
  * @Last Modified by: Peak Xin
- * @Last Modified time: 2020-03-12 22:05:30
+ * @Last Modified time: 2020-05-11 22:18:04
  */
 
 'use strict';
@@ -11,9 +11,10 @@ var _xm = require('util/xm.js');
 
 var _cart = {
     // 获取购物车数量
-    getCartCount: function (resolve, reject) {
+    getCartCount: function (token, resolve, reject) {
         _xm.request({
-            url: _xm.getServerUrl('/cart/get_cart_product_count.do'),
+            url: _xm.getServerUrl('/v1/cart/product_count'),
+            data: {token},
             success: resolve,
             error: reject
         });

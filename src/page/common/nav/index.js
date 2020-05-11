@@ -2,7 +2,7 @@
  * @Author: Peak Xin 
  * @Date: 2020-03-12 21:14:00 
  * @Last Modified by: Peak Xin
- * @Last Modified time: 2020-05-11 00:04:22
+ * @Last Modified time: 2020-05-11 22:18:06
  */
 
 'use strict'
@@ -10,6 +10,7 @@ require('./index.css');
 var _xm = require('util/xm.js');
 var _user = require('service/user-service.js');
 var _cart = require('service/cart-service.js');
+var token = _xm.getLocalStorage('token');
 // 导航
 var nav = {
     init: function () {
@@ -38,7 +39,6 @@ var nav = {
     }
     // 加载用户信息
     , loadUserInfo: function () {
-        var token = _xm.getLocalStorage('token');
         if (token) {
             _user.checkLogin(token, function (res) {
                 $('.user.not-login').hide().siblings('.user.login').show()
@@ -52,11 +52,13 @@ var nav = {
     }
     // 加载购物车数量
     , loadCartCount: function () {
-        _cart.getCartCount(function (res) {
-            $('.nav .cart-count').text(res || 0);
-        }, function (errMsg) {
-            $('.nav .cart-count').text(0);
-        });
+        if (token) {
+            _cart.getCartCount(token, function (res) {
+                $('.nav .cart-count').text(res || 0);
+            }, function (errMsg) {
+                $('.nav .cart-count').text(0);
+            });
+        }
     }
 };
 
