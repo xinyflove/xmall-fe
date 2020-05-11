@@ -19,6 +19,9 @@
 .nav .user .link {
     margin-right: 5px;
 }
+.nav .user .link:first-child {
+    color: #e80012;
+}
 /* 导航链接部分 */
 .nav .nav-list {
     float: right;
