@@ -47,7 +47,7 @@ var _user = {
     , checkLogin: function (token, resolve, reject) {
         _xm.request({
             url: _xm.getServerUrl('/v1/user/login_info'),
-            header: {token: token},
+            data: {token: token},
             method: 'POST',
             success: resolve,
             error: reject
@@ -116,12 +116,8 @@ var _user = {
     }
     // 登出
     , logout: function(resolve, reject) {
-        _xm.request({
-            url: _xm.getServerUrl('/user/logout.do'),
-            method: 'POST',
-            success: resolve,
-            error: reject
-        });
+        _xm.deleteLocalStorage('token');
+        _xm.goHome();
     }
 }
 module.exports = _user;

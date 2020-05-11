@@ -39,12 +39,16 @@ var nav = {
     // 加载用户信息
     , loadUserInfo: function () {
         var token = _xm.getLocalStorage('token');
-        _user.checkLogin(token, function (res) {
-            $('.user.not-login').hide().siblings('.user.login').show()
-                .find('.username').text(res.username);
-        }, function (errMsg) {
-            // do nothing
-        });
+        if (token) {
+            _user.checkLogin(token, function (res) {
+                $('.user.not-login').hide().siblings('.user.login').show()
+                    .find('.username').text(res.name);
+            }, function (errMsg) {
+                // do nothing
+                _xm.errorTips(errMsg);
+                _xm.doLogin();
+            });
+        }
     }
     // 加载购物车数量
     , loadCartCount: function () {

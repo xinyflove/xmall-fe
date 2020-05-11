@@ -16,7 +16,7 @@ var _xm = {
     request: function (param) {
         var _this = this;
         $.ajax({
-            type: param.method || 'get',
+            type: param.method || 'GET',
             url: param.url || '',
             dataType: param.type || 'json',
             data: param.data || '',
