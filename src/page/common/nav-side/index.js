@@ -2,7 +2,7 @@
  * @Author: Peak Xin 
  * @Date: 2020-03-12 21:41:28 
  * @Last Modified by: Peak Xin
- * @Last Modified time: 2020-03-15 20:20:20
+ * @Last Modified time: 2020-05-17 00:11:35
  */
 
 'use strict'
@@ -16,7 +16,7 @@ var navSide = {
         navList: [
             {name: 'user-center', desc: '个人中心', href: './user-center.html'},
             {name: 'order-list', desc: '我的订单', href: './order-list.html'},
-            {name: 'pass-update', desc: '修改密码', href: './pass-update.html'},
+            {name: 'user-pass-update', desc: '修改密码', href: './user-pass-update.html'},
             {name: 'about', desc: '关于XMall', href: './about.html'}
         ],
     }

@@ -2,7 +2,7 @@
  * @Author: Peak Xin 
  * @Date: 2020-03-07 21:11:27 
  * @Last Modified by: Peak Xin
- * @Last Modified time: 2020-05-07 23:23:15
+ * @Last Modified time: 2020-05-17 00:04:38
  */
 var webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
@@ -32,6 +32,7 @@ var config = {
         'user-pass-reset': ['./src/page/user-pass-reset/index.js'],// 找回密码
         'user-center': ['./src/page/user-center/index.js'],// 个人中心
         'user-center-update': ['./src/page/user-center-update/index.js'],// 修改个人信息
+        'user-pass-update': ['./src/page/user-pass-update/index.js'],// 修改密码
         'result': ['./src/page/result/index.js'],// 操作结果
     },
     output: {
@@ -73,6 +74,7 @@ var config = {
         new HtmlWebpackPlugin(getHtmlConfig('user-pass-reset', '找回密码')),
         new HtmlWebpackPlugin(getHtmlConfig('user-center', '个人中心')),
         new HtmlWebpackPlugin(getHtmlConfig('user-center-update', '修改个人信息')),
+        new HtmlWebpackPlugin(getHtmlConfig('user-pass-update', '修改密码')),
         new HtmlWebpackPlugin(getHtmlConfig('result', '操作结果')),
     ]
 };
