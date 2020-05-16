@@ -2,7 +2,7 @@
  * @Author: Peak Xin 
  * @Date: 2020-03-12 21:44:32 
  * @Last Modified by: Peak Xin
- * @Last Modified time: 2020-05-16 13:52:06
+ * @Last Modified time: 2020-05-16 14:20:14
  */
 
 'use strict';
@@ -86,9 +86,10 @@ var _user = {
         });
     }
     // 获取用户信息
-    , getUserInfo: function (resolve, reject) {
+    , getUserInfo: function (token, resolve, reject) {
         _xm.request({
-            url: _xm.getServerUrl('/user/get_information.do'),
+            url: _xm.getServerUrl('/v1/user/get_info'),
+            data: {token: token},
             method: 'POST',
             success: resolve,
             error: reject
@@ -97,7 +98,7 @@ var _user = {
     // 更新个人信息
     , updateUserInfo: function (userInfo, resolve, reject) {
         _xm.request({
-            url: _xm.getServerUrl('/user/update_information.do'),
+            url: _xm.getServerUrl('/v1/user/update_info'),
             data: userInfo,
             method: 'POST',
             success: resolve,
@@ -107,7 +108,7 @@ var _user = {
     // 登录状态下更新密码
     , updatePassword: function(userInfo, resolve, reject) {
         _xm.request({
-            url: _xm.getServerUrl('/user/reset_password.do'),
+            url: _xm.getServerUrl('/v1/user/reset_password'),
             data: userInfo,
             method: 'POST',
             success: resolve,

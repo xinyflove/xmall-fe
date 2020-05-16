@@ -5,7 +5,7 @@
     </div>
     <div class="form-line">
         <span class="label">电 话：</span>
-        <input class="input" id="phone" autocomplete="off" value="{{phone}}" />
+        <input class="input" id="mobile" autocomplete="off" value="{{mobile}}" />
     </div>
     <div class="form-line">
         <span class="label">邮 箱：</span>

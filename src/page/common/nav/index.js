@@ -2,7 +2,7 @@
  * @Author: Peak Xin 
  * @Date: 2020-03-12 21:14:00 
  * @Last Modified by: Peak Xin
- * @Last Modified time: 2020-05-11 22:18:06
+ * @Last Modified time: 2020-05-16 23:26:54
  */
 
 'use strict'
@@ -42,7 +42,7 @@ var nav = {
         if (token) {
             _user.checkLogin(token, function (res) {
                 $('.user.not-login').hide().siblings('.user.login').show()
-                    .find('.username').text(res.name);
+                    .find('.username').text(res.username);
             }, function (errMsg) {
                 // do nothing
                 _xm.errorTips(errMsg);

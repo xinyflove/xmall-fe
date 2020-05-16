@@ -2,7 +2,7 @@
  * @Author: Peak Xin 
  * @Date: 2020-05-07 23:24:22 
  * @Last Modified by: Peak Xin
- * @Last Modified time: 2020-05-08 23:24:06
+ * @Last Modified time: 2020-05-16 23:42:01
  */
 'use strict';
 require('./index.css');
@@ -12,6 +12,7 @@ var navSide = require('page/common/nav-side/index.js');
 var _xm = require('util/xm.js');
 var _user = require('service/user-service.js');
 var templateIndex = require('./index.string');
+var token = _xm.getLocalStorage('token');
 
 // page 逻辑部分
 var page = {
@@ -32,10 +33,11 @@ var page = {
         // 点击提交按钮后的动作
         $(document).on('click', '.btn-submit', function () {
             var userInfo = {
-                phone: $.trim($('#phone').val()),
+                mobile: $.trim($('#mobile').val()),
                 email: $.trim($('#email').val()),
                 question: $.trim($('#question').val()),
-                answer: $.trim($('#answer').val())
+                answer: $.trim($('#answer').val()),
+                token: token
             },
                 validateResult = _this.validateForm(userInfo);
             if (validateResult.status) {
@@ -55,7 +57,7 @@ var page = {
     // 加载用户信息
     loadUserInfo: function () {
         var userHtml = '';
-        _user.getUserInfo(function (res) {
+        _user.getUserInfo(token, function (res) {
             userHtml = _xm.renderHtml(templateIndex, res);
             $('.panel-body').html(userHtml);
         }, function (errMsg) {
@@ -69,7 +71,7 @@ var page = {
             msg: ''
         };
         // 验证手机号
-        if (!_xm.validate(formData.phone, 'phone')) {
+        if (!_xm.validate(formData.mobile, 'mobile')) {
             result.msg = '手机号格式不正确';
             return result;
         }

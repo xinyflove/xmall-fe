@@ -2,7 +2,7 @@
  * @Author: Peak Xin
  * @Date: 2020-05-07 23:11:19 
  * @Last Modified by: Peak Xin
- * @Last Modified time: 2020-05-07 23:51:31
+ * @Last Modified time: 2020-05-16 14:19:41
  */
 
 'use strict';
@@ -13,6 +13,7 @@ var navSide = require('page/common/nav-side/index.js');
 var _xm = require('util/xm.js');
 var _user = require('service/user-service.js');
 var templateIndex = require('./index.string');
+var token = _xm.getLocalStorage('token');
 
 // page 逻辑部分
 var page = {
@@ -30,7 +31,7 @@ var page = {
     // 加载用户信息
     , loadUserInfo: function () {
         var userHtml = '';
-        _user.getUserInfo(function (res) {
+        _user.getUserInfo(token, function (res) {
             userHtml = _xm.renderHtml(templateIndex, res);
             $('.panel-body').html(userHtml);
         }, function (errMsg) {
