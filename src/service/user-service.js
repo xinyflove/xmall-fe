@@ -2,7 +2,7 @@
  * @Author: Peak Xin 
  * @Date: 2020-03-12 21:44:32 
  * @Last Modified by: Peak Xin
- * @Last Modified time: 2020-05-11 22:37:05
+ * @Last Modified time: 2020-05-16 13:52:06
  */
 
 'use strict';
@@ -56,7 +56,7 @@ var _user = {
     // 获取用户密码提示问题
     , getQuestion:function (username, resolve, reject) {
         _xm.request({
-            url: _xm.getServerUrl('/user/forget_get_question.do'),
+            url: _xm.getServerUrl('/v1/user/forget_get_question'),
             data: {
                 username: username
             },
@@ -68,7 +68,7 @@ var _user = {
     // 检查密码提示问题答案
     , checkAnswer: function (userInfo, resolve, reject) {
         _xm.request({
-            url: _xm.getServerUrl('/user/forget_check_answer.do'),
+            url: _xm.getServerUrl('/v1/user/forget_check_answer'),
             data: userInfo,
             method: 'POST',
             success: resolve,
@@ -78,7 +78,7 @@ var _user = {
     // 重置密码
     , resetPassword: function (userInfo, resolve, reject) {
         _xm.request({
-            url: _xm.getServerUrl('/user/forget_reset_password.do'),
+            url: _xm.getServerUrl('/v1/user/forget_reset_password'),
             data: userInfo,
             method: 'POST',
             success: resolve,

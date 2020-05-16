@@ -2,7 +2,7 @@
  * @Author: Peak Xin 
  * @Date: 2020-04-19 22:22:56 
  * @Last Modified by: Peak Xin
- * @Last Modified time: 2020-04-19 22:23:47
+ * @Last Modified time: 2020-05-16 14:05:36
  */
 
 'use strict';
@@ -45,7 +45,7 @@ var page = {
             if (username) {
                 _user.getQuestion(username, function (res) {
                     _this.data.username = username;
-                    _this.data.question = res;
+                    _this.data.question = res.question;
                     _this.loadStepQuestion();
                 }, function (errMsg) {
                     formError.show(errMsg);
@@ -68,7 +68,7 @@ var page = {
                     answer: answer
                 }, function (res) {
                     _this.data.answer = answer;
-                    _this.data.token = res;
+                    _this.data.token = res.token;
                     _this.loadStepPassword();
                 }, function (errMsg) {
                     formError.show(errMsg);
@@ -87,8 +87,8 @@ var page = {
                 // 检查密码提示问题答案
                 _user.resetPassword({
                     username: _this.data.username,
-                    passwordNew: password,
-                    forgetToken: _this.data.token
+                    password: password,
+                    token: _this.data.token
                 }, function (res) {
                     window.location.href = './result.html?type=pass-reset';
                 }, function (errMsg) {
