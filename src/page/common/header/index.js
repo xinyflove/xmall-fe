@@ -2,7 +2,7 @@
  * @Author: Peak Xin 
  * @Date: 2020-03-12 21:41:28 
  * @Last Modified by: Peak Xin
- * @Last Modified time: 2020-03-15 17:37:09
+ * @Last Modified time: 2020-05-17 23:26:17
  */
 
 'use strict'
@@ -12,6 +12,7 @@ var _xm = require('util/xm.js');
 // 通用页面头部
 var header = {
     init: function () {
+        this.onLoad();
         this.bindEvent();
     }
     , onLoad: function () {
