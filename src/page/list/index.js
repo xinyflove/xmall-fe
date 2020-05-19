@@ -2,7 +2,7 @@
  * @Author: Peak Xin 
  * @Date: 2020-05-17 23:14:13 
  * @Last Modified by: Peak Xin
- * @Last Modified time: 2020-05-17 23:21:50
+ * @Last Modified time: 2020-05-19 22:49:17
  */
 
 'use strict';
@@ -18,10 +18,10 @@ var page = {
     data: {
         listParam: {
             keyword: _xm.getUrlParam('keyword') || '',
-            categoryId: _xm.getUrlParam('categoryId') || '',
-            orderBy: _xm.getUrlParam('orderBy') || 'default',
-            pageNum: _xm.getUrlParam('pageNum') || 1,
-            pageSize: _xm.getUrlParam('pageSize') || 20
+            cat_id: _xm.getUrlParam('cat_id') || '',
+            order_by: _xm.getUrlParam('order_by') || 'default',
+            page_num: _xm.getUrlParam('page_num') || 1,
+            page_size: _xm.getUrlParam('page_size') || 20
         }
     },
     init: function () {
