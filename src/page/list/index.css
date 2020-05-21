@@ -1,8 +1,8 @@
 /*
  * @Author: Peak Xin 
  * @Date: 2020-05-17 23:13:52 
- * @Last Modified by:   Peak Xin 
- * @Last Modified time: 2020-05-17 23:13:52 
+ * @Last Modified by: Peak Xin
+ * @Last Modified time: 2020-05-21 23:30:21
  */
 /* 排序按钮 */
 .sort-con{
@@ -54,7 +54,7 @@
 }
 .p-list-con .p-item .p-img-con{
     width: 180px;
-    height: 200px;
+    height: 180px;
 }
 .p-list-con .p-item .p-img-con .p-img{
     width: 100%;

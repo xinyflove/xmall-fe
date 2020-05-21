@@ -2,7 +2,7 @@
  * @Author: Peak Xin 
  * @Date: 2020-05-17 23:05:31 
  * @Last Modified by: Peak Xin
- * @Last Modified time: 2020-05-17 23:17:16
+ * @Last Modified time: 2020-05-21 23:42:58
  */
 
 'use strict';
@@ -53,6 +53,7 @@ Pagination.prototype.getPaginationHtml = function(){
             ? option.pageNum - option.pageRange : 1,
         end         = option.pageNum + option.pageRange < option.pages
             ? option.pageNum + option.pageRange : option.pages;
+            console.log(option);
     // 上一页按钮的数据
     pageArray.push({
         name : '上一页',
