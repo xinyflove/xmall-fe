@@ -2,14 +2,14 @@
  * @Author: Peak Xin 
  * @Date: 2020-03-07 21:11:27 
  * @Last Modified by: Peak Xin
- * @Last Modified time: 2020-05-17 23:11:53
+ * @Last Modified time: 2020-05-22 23:23:58
  */
 var webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var HtmlWebpackPlugin = require("html-webpack-plugin");
 
 // 环境变量配置，dev / online
-var WEBPACK_ENV         = process.env.WEBPACK_ENV || 'dev';
+var WEBPACK_ENV = process.env.WEBPACK_ENV || 'dev';
 
 // 获取html-webpack-plugin参数的方法
 var getHtmlConfig = function (name, title) {
@@ -28,6 +28,7 @@ var config = {
         'common': ['./src/page/common/index.js'],// 通用模块js
         'index': ['./src/page/index/index.js'],// 首页
         'list': ['./src/page/list/index.js'],// 商品列表页
+        'detail': ['./src/page/detail/index.js'],// 商品详情页
         'user-login': ['./src/page/user-login/index.js'],// 用户登录
         'user-register': ['./src/page/user-register/index.js'],// 用户注册
         'user-pass-reset': ['./src/page/user-pass-reset/index.js'],// 找回密码
@@ -71,6 +72,7 @@ var config = {
         // html模版的处理
         new HtmlWebpackPlugin(getHtmlConfig('index', '首页')),
         new HtmlWebpackPlugin(getHtmlConfig('list', '商品列表页')),
+        new HtmlWebpackPlugin(getHtmlConfig('detail', '商品详情页')),
         new HtmlWebpackPlugin(getHtmlConfig('user-login', '用户登录')),
         new HtmlWebpackPlugin(getHtmlConfig('user-register', '用户注册')),
         new HtmlWebpackPlugin(getHtmlConfig('user-pass-reset', '找回密码')),

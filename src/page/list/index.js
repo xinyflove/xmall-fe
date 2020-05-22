@@ -2,7 +2,7 @@
  * @Author: Peak Xin 
  * @Date: 2020-05-17 23:14:13 
  * @Last Modified by: Peak Xin
- * @Last Modified time: 2020-05-21 23:49:05
+ * @Last Modified time: 2020-05-22 23:07:18
  */
 
 'use strict';
@@ -19,7 +19,7 @@ var page = {
         listParam: {
             keyword: _xm.getUrlParam('keyword') || '',
             cat_id: _xm.getUrlParam('cat_id') || '',
-            order_by: _xm.getUrlParam('order_by') || 'default',
+            orderBy: _xm.getUrlParam('orderBy') || 'default',
             pageNum: _xm.getUrlParam('pageNum') || 1,
             pageSize: _xm.getUrlParam('pageSize') || 20
         }

@@ -2,7 +2,7 @@
  * @Author: Peak Xin 
  * @Date: 2020-05-17 23:18:15 
  * @Last Modified by: Peak Xin
- * @Last Modified time: 2020-05-17 23:34:13
+ * @Last Modified time: 2020-05-22 23:33:06
  */
 
 'use strict';
@@ -22,7 +22,7 @@ var _product = {
     // 获取商品详细信息
     getProductDetail: function (productId, resolve, reject) {
         _xm.request({
-            url: _xm.getServerUrl('/product/detail.do'),
+            url: _xm.getServerUrl('/v1/product/detail'),
             data: {
                 productId: productId
             },
