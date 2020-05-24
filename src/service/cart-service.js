@@ -2,7 +2,7 @@
  * @Author: Peak Xin 
  * @Date: 2020-03-12 22:00:14 
  * @Last Modified by: Peak Xin
- * @Last Modified time: 2020-05-24 14:53:27
+ * @Last Modified time: 2020-05-24 22:00:56
  */
 
 'use strict';
@@ -66,7 +66,8 @@ var _cart = {
     // 选中全部商品
     selectAllProduct: function(resolve, reject) {
         _xm.request({
-            url: _xm.getServerUrl('/cart/select_all.do'),
+            url: _xm.getServerUrl('/v1/cart/select_all'),
+            data: { token: _token },
             success: resolve,
             error: reject
         });
@@ -74,15 +75,17 @@ var _cart = {
     // 取消选中全部商品
     unselectAllProduct: function(resolve, reject) {
         _xm.request({
-            url: _xm.getServerUrl('/cart/un_select_all.do'),
+            url: _xm.getServerUrl('/v1/cart/un_select_all'),
+            data: { token: _token },
             success: resolve,
             error: reject
         });
     },
     // 更新购物车商品数量
     updateProduct: function(productInfo, resolve, reject) {
+        productInfo.token = _token;
         _xm.request({
-            url: _xm.getServerUrl('/cart/update.do'),
+            url: _xm.getServerUrl('/v1/cart/update'),
             data: productInfo,
             success: resolve,
             error: reject
@@ -91,9 +94,10 @@ var _cart = {
     // 删除指定商品
     deleteProduct: function(productIds, resolve, reject) {
         _xm.request({
-            url: _xm.getServerUrl('/cart/delete_product.do'),
+            url: _xm.getServerUrl('/v1/cart/delete_product'),
             data: {
-                productIds: productIds
+                productIds: productIds,
+                token: _token
             },
             success: resolve,
             error: reject
