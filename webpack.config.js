@@ -2,7 +2,7 @@
  * @Author: Peak Xin 
  * @Date: 2020-03-07 21:11:27 
  * @Last Modified by: Peak Xin
- * @Last Modified time: 2020-05-22 23:23:58
+ * @Last Modified time: 2020-05-24 13:28:03
  */
 var webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
@@ -12,44 +12,45 @@ var HtmlWebpackPlugin = require("html-webpack-plugin");
 var WEBPACK_ENV = process.env.WEBPACK_ENV || 'dev';
 
 // 获取html-webpack-plugin参数的方法
-var getHtmlConfig = function (name, title) {
-    return {
-        template: './src/view/' + name + '.html',
-        filename: 'view/' + name + '.html',
-        title: title,
-        inject: true,
-        hash: true,
-        chunks: ['common', name]
-    };
-}
-// webpack config
+var getHtmlConfig = function(name, title) {
+        return {
+            template: './src/view/' + name + '.html',
+            filename: 'view/' + name + '.html',
+            title: title,
+            inject: true,
+            hash: true,
+            chunks: ['common', name]
+        };
+    }
+    // webpack config
 var config = {
     entry: {
-        'common': ['./src/page/common/index.js'],// 通用模块js
-        'index': ['./src/page/index/index.js'],// 首页
-        'list': ['./src/page/list/index.js'],// 商品列表页
-        'detail': ['./src/page/detail/index.js'],// 商品详情页
-        'user-login': ['./src/page/user-login/index.js'],// 用户登录
-        'user-register': ['./src/page/user-register/index.js'],// 用户注册
-        'user-pass-reset': ['./src/page/user-pass-reset/index.js'],// 找回密码
-        'user-center': ['./src/page/user-center/index.js'],// 个人中心
-        'user-center-update': ['./src/page/user-center-update/index.js'],// 修改个人信息
-        'user-pass-update': ['./src/page/user-pass-update/index.js'],// 修改密码
-        'result': ['./src/page/result/index.js'],// 操作结果
+        'common': ['./src/page/common/index.js'], // 通用模块js
+        'index': ['./src/page/index/index.js'], // 首页
+        'list': ['./src/page/list/index.js'], // 商品列表页
+        'detail': ['./src/page/detail/index.js'], // 商品详情页
+        'cart': ['./src/page/cart/index.js'], // 购物车
+        'user-login': ['./src/page/user-login/index.js'], // 用户登录
+        'user-register': ['./src/page/user-register/index.js'], // 用户注册
+        'user-pass-reset': ['./src/page/user-pass-reset/index.js'], // 找回密码
+        'user-center': ['./src/page/user-center/index.js'], // 个人中心
+        'user-center-update': ['./src/page/user-center-update/index.js'], // 修改个人信息
+        'user-pass-update': ['./src/page/user-pass-update/index.js'], // 修改密码
+        'result': ['./src/page/result/index.js'], // 操作结果
     },
     output: {
         path: './dist',
-        publicPath : '/dist',
+        publicPath: '/dist',
         filename: 'js/[name].js'
     },
-    externals: {// 引入外部模块
+    externals: { // 引入外部模块
         'jquery': 'window.jQuery'
     },
     module: {
         loaders: [
             { test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader") },
             { test: /\.(gif|png|jpg|woff|svg|eot|ttf)\??.*$/, loader: 'url-loader?limit=100&name=resource/[name].[ext]' },
-            { test: /\.string$/, loader: 'html-loader'}
+            { test: /\.string$/, loader: 'html-loader' }
         ]
     },
     resolve: {
@@ -73,6 +74,7 @@ var config = {
         new HtmlWebpackPlugin(getHtmlConfig('index', '首页')),
         new HtmlWebpackPlugin(getHtmlConfig('list', '商品列表页')),
         new HtmlWebpackPlugin(getHtmlConfig('detail', '商品详情页')),
+        new HtmlWebpackPlugin(getHtmlConfig('cart', '购物车')),
         new HtmlWebpackPlugin(getHtmlConfig('user-login', '用户登录')),
         new HtmlWebpackPlugin(getHtmlConfig('user-register', '用户注册')),
         new HtmlWebpackPlugin(getHtmlConfig('user-pass-reset', '找回密码')),
@@ -83,7 +85,7 @@ var config = {
     ]
 };
 
-if('dev' === WEBPACK_ENV){
+if ('dev' === WEBPACK_ENV) {
     config.entry.common.push('webpack-dev-server/client?http://localhost:8088/');
 }
 
