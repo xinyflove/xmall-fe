@@ -2,7 +2,7 @@
  * @Author: Peak Xin 
  * @Date: 2020-03-12 22:00:14 
  * @Last Modified by: Peak Xin
- * @Last Modified time: 2020-05-24 22:00:56
+ * @Last Modified time: 2020-05-26 23:49:24
  */
 
 'use strict';
@@ -94,7 +94,7 @@ var _cart = {
     // 删除指定商品
     deleteProduct: function(productIds, resolve, reject) {
         _xm.request({
-            url: _xm.getServerUrl('/v1/cart/delete_product'),
+            url: _xm.getServerUrl('/v1/cart/delete'),
             data: {
                 productIds: productIds,
                 token: _token
