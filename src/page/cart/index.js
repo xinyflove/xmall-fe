@@ -2,7 +2,7 @@
  * @Author: Peak Xin 
  * @Date: 2020-05-24 13:28:49 
  * @Last Modified by: Peak Xin
- * @Last Modified time: 2020-05-24 13:41:16
+ * @Last Modified time: 2020-05-27 16:09:18
  */
 
 'use strict';
@@ -128,7 +128,7 @@ var page = {
         $(document).on('click', '.btn-submit', function() {
             // 总价大于0，进行提交
             if (_this.data.cartInfo && _this.data.cartInfo.cartTotalPrice > 0) {
-                window.location.href = './confirm.html';
+                window.location.href = './order-confirm.html';
             } else {
                 _xm.errorTips('请选择商品后再提交');
             }
