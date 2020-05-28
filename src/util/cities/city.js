@@ -1,8 +1,8 @@
 /*
- * @Author: Peak Xin 
- * @Date: 2020-05-27 16:31:57 
- * @Last Modified by:   Peak Xin 
- * @Last Modified time: 2020-05-27 16:31:57 
+ * @Author: Peak Xin
+ * @Date: 2020-05-27 16:31:57
+ * @Last Modified by: Peak Xin
+ * @Last Modified time: 2020-05-28 10:48:04
  */
 
 'use strict';
@@ -979,7 +979,7 @@ var _cities = {
         ],
         "香港": ["香港"],
         "澳门": ["澳门"],
-        "台湾": ["台北", "高雄", "基隆", "台中", "台南", "新竹", "嘉义"]　　
+        "台湾": ["台北", "高雄", "基隆", "台中", "台南", "新竹", "嘉义"]
     },
     // 获取所有省份
     getProvinces: function() {

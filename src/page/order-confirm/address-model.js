@@ -2,7 +2,7 @@
  * @Author: Peak Xin 
  * @Date: 2020-05-27 16:27:08 
  * @Last Modified by: Peak Xin
- * @Last Modified time: 2020-05-27 16:35:10
+ * @Last Modified time: 2020-05-28 11:01:34
  */
 
 'use strict';
@@ -75,25 +75,25 @@ var addressModel = {
             result = {
                 status: false
             };
-        receiverInfo.receiverName = $.trim(this.$modelWrap.find('#receiver-name').val());
-        receiverInfo.receiverProvince = this.$modelWrap.find('#receiver-province').val();
-        receiverInfo.receiverCity = this.$modelWrap.find('#receiver-city').val();
-        receiverInfo.receiverPhone = $.trim(this.$modelWrap.find('#receiver-phone').val());
-        receiverInfo.receiverAddress = $.trim(this.$modelWrap.find('#receiver-address').val());
-        receiverInfo.receiverZip = $.trim(this.$modelWrap.find('#receiver-zip').val());
+        receiverInfo.name = $.trim(this.$modelWrap.find('#receiver-name').val());
+        receiverInfo.province = this.$modelWrap.find('#receiver-province').val();
+        receiverInfo.city = this.$modelWrap.find('#receiver-city').val();
+        receiverInfo.mobile = $.trim(this.$modelWrap.find('#receiver-mobile').val());
+        receiverInfo.address = $.trim(this.$modelWrap.find('#receiver-address').val());
+        receiverInfo.zip = $.trim(this.$modelWrap.find('#receiver-zip').val());
         if (this.option.isUpdate) {
             receiverInfo.id = this.$modelWrap.find('#receiver-id').data('receiver-id');
         }
         // 表单验证
-        if (!receiverInfo.receiverName) {
+        if (!receiverInfo.name) {
             result.errMsg = '请输入收件人姓名';
-        } else if (!receiverInfo.receiverProvince) {
+        } else if (!receiverInfo.province) {
             result.errMsg = '请输入收件人所在省份';
-        } else if (!receiverInfo.receiverCity) {
+        } else if (!receiverInfo.city) {
             result.errMsg = '请输入收件人所在城市';
-        } else if (!receiverInfo.receiverPhone) {
+        } else if (!receiverInfo.mobile) {
             result.errMsg = '请输入收件人手机号';
-        } else if (!receiverInfo.receiverAddress) {
+        } else if (!receiverInfo.address) {
             result.errMsg = '请输入收件人详细地址';
         } else {
             result.status = true;
@@ -117,9 +117,9 @@ var addressModel = {
             $provinceSelect = this.$modelWrap.find('#receiver-province');
         $provinceSelect.html(this.getSelectOption(provinces));
         //如果是更新地址，并且有省份信息，做省份回填
-        if (this.option.isUpdate && this.option.data.receiverProvince) {
-            $provinceSelect.val(this.option.data.receiverProvince);
-            this.loadCities(this.option.data.receiverProvince);
+        if (this.option.isUpdate && this.option.data.province) {
+            $provinceSelect.val(this.option.data.province);
+            this.loadCities(this.option.data.province);
         }
     },
     // 加载城市信息
@@ -128,8 +128,8 @@ var addressModel = {
             $citySelect = this.$modelWrap.find('#receiver-city');
         $citySelect.html(this.getSelectOption(cities));
         //如果是更新地址，并且有城市信息，做城市回填
-        if (this.option.isUpdate && this.option.data.receiverCity) {
-            $citySelect.val(this.option.data.receiverCity);
+        if (this.option.isUpdate && this.option.data.city) {
+            $citySelect.val(this.option.data.city);
         }
     },
     //获取select框的选项:输入array ,输出html

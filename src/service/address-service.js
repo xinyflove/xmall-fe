@@ -2,19 +2,22 @@
  * @Author: Peak Xin 
  * @Date: 2020-05-27 16:24:54 
  * @Last Modified by: Peak Xin
- * @Last Modified time: 2020-05-27 17:21:35
+ * @Last Modified time: 2020-05-28 12:38:28
  */
 
 'use strict';
 
 var _xm = require('util/xm.js');
+var _token = _xm.getLocalStorage('token');
+
 var _address = {
     //获取地址列表信息
     getAddressList: function(resolve, reject) {
         _xm.request({
-            url: _xm.getServerUrl('/v1/shipping/list'),
+            url: _xm.getServerUrl('/v1/ship/list'),
             data: {
-                pageSize: 50
+                pageSize: 50,
+                token: _token
             },
             success: resolve,
             error: reject,
@@ -22,8 +25,10 @@ var _address = {
     },
     //新建收件人收货信息
     save: function(addressInfo, resolve, reject) {
+        addressInfo.token = _token;
         _xm.request({
-            url: _xm.getServerUrl('/shipping/add.do'),
+            method: 'POST',
+            url: _xm.getServerUrl('/v1/ship/add'),
             data: addressInfo,
             success: resolve,
             error: reject,
@@ -31,8 +36,10 @@ var _address = {
     },
     //更新收件人收货信息
     update: function(addressInfo, resolve, reject) {
+        addressInfo.token = _token;
         _xm.request({
-            url: _xm.getServerUrl('/shipping/update.do'),
+            method: 'POST',
+            url: _xm.getServerUrl('/v1/ship/update'),
             data: addressInfo,
             success: resolve,
             error: reject,
@@ -50,11 +57,12 @@ var _address = {
         });
     },
     // 获取要编辑的收货人收货信息
-    getAddress: function(shippingId, resolve, reject) {
+    getAddress: function(shipId, resolve, reject) {
         _xm.request({
-            url: _xm.getServerUrl('/shipping/select.do'),
+            url: _xm.getServerUrl('/v1/ship/edit'),
             data: {
-                shippingId: shippingId
+                shipId: shipId,
+                token: _token
             },
             success: resolve,
             error: reject,

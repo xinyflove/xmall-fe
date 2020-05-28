@@ -1,15 +1,15 @@
 {{#list}}
-{{#isActive}}
+{{#def}}
 <div class="address-item active" data-id="{{id}}">
-{{/isActive}}
-{{^isActive}}
+{{/def}}
+{{^def}}
 <div class="address-item" data-id="{{id}}">
-{{/isActive}}
+{{/def}}
     <div class="address-title">
-        {{receiverCity}} {{receiverProvince}} ({{receiverName}}收)
+        {{city}} {{province}} ({{name}}收)
     </div>
     <div class="address-detail">
-        {{receiverAddress}} {{receiverPhone}}
+        {{address}} {{mobile}}
     </div>
     <div class="address-opera">
         <span class="link address-update">编辑</span>

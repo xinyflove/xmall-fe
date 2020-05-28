@@ -2,7 +2,7 @@
  * @Author: Peak Xin 
  * @Date: 2020-05-27 16:13:08 
  * @Last Modified by: Peak Xin
- * @Last Modified time: 2020-05-27 16:19:10
+ * @Last Modified time: 2020-05-28 14:17:44
  */
 
 'use strict';
@@ -49,8 +49,8 @@ var page = {
         //地址编辑
         $(document).on('click', '.address-update', function(e) {
             e.stopPropagation();
-            var shippingId = $(this).parents('.address-item').data('id');
-            _address.getAddress(shippingId, function(res) {
+            var shipId = $(this).parents('.address-item').data('id');
+            _address.getAddress(shipId, function(res) {
                 addressModel.show({
                     isUpdate: true,
                     data: res,
@@ -93,7 +93,7 @@ var page = {
     // 加载地址列表
     loadAddressList: function() {
         var _this = this;
-        $('.product-con').html('<div class="loading"></div>');
+        $('.address-con').html('<div class="loading"></div>');
         _address.getAddressList(function(res) {
             _this.addressFilter(res);
             var addressHtml = _xm.renderHtml(templateAddress, res);
