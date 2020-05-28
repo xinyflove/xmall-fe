@@ -2,7 +2,7 @@
  * @Author: Peak Xin 
  * @Date: 2020-05-27 16:23:19 
  * @Last Modified by: Peak Xin
- * @Last Modified time: 2020-05-27 16:47:02
+ * @Last Modified time: 2020-05-28 16:04:19
  */
 
 'use strict';
@@ -22,8 +22,10 @@ var _order = {
     },
     // 提交订单
     createOrder: function(orderInfo, resolve, reject) {
+        orderInfo.token = _token;
         _xm.request({
-            url: _xm.getServerUrl('/order/create.do'),
+            method: 'POST',
+            url: _xm.getServerUrl('/v1/order/create'),
             data: orderInfo,
             success: resolve,
             error: reject,

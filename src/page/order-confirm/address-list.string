@@ -1,12 +1,12 @@
 {{#list}}
-{{#def}}
+{{#isActive}}
 <div class="address-item active" data-id="{{id}}">
-{{/def}}
-{{^def}}
+{{/isActive}}
+{{^isActive}}
 <div class="address-item" data-id="{{id}}">
-{{/def}}
+{{/isActive}}
     <div class="address-title">
-        {{city}} {{province}} ({{name}}收)
+        {{province}} {{city}} ({{name}}收)
     </div>
     <div class="address-detail">
         {{address}} {{mobile}}

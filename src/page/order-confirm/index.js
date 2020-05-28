@@ -2,7 +2,7 @@
  * @Author: Peak Xin 
  * @Date: 2020-05-27 16:13:08 
  * @Last Modified by: Peak Xin
- * @Last Modified time: 2020-05-28 14:17:44
+ * @Last Modified time: 2020-05-28 16:05:56
  */
 
 'use strict';
@@ -65,9 +65,9 @@ var page = {
         //地址删除
         $(document).on('click', '.address-delete', function(e) {
             e.stopPropagation();
-            var shippingId = $(this).parents('.address-item').data('id');
+            var shipId = $(this).parents('.address-item').data('id');
             if (window.confirm('你确认要删除该地址吗？')) {
-                _address.deleteAddress(shippingId, function(res) {
+                _address.deleteAddress(shipId, function(res) {
                     _this.loadAddressList();
                 }, function(errMsg) {
                     _xm.errorTips(errMsg);
@@ -76,10 +76,10 @@ var page = {
         });
         //订单的提交
         $(document).on('click', '.order-submit', function() {
-            var shippingId = _this.data.selectedAddressId;
-            if (shippingId) {
+            var shipId = _this.data.selectedAddressId;
+            if (shipId) {
                 _order.createOrder({
-                    shippingId: shippingId
+                    shipId: shipId
                 }, function(res) {
                     window.location.href = './payment.html?orderNo=' + res.orderNo;
                 }, function(errMsg) {
@@ -115,21 +115,24 @@ var page = {
     },
     // 处理地址列表中的选中状态
     addressFilter: function(data) {
-        if (this.data.selectedAddressId) {
-            var selectedAddressIdFlag = false;
-            for (var i = 0, length = data.list.length; i < length; i++) {
-                if (data.list[i].id === this.data.selectedAddressId) {
-                    data.list[i].isActive = true;
-                    selectedAddressIdFlag = true;
+        var selectedAddressIdFlag = false;
+        for (var i = 0, length = data.list.length; i < length; i++) {
+            if (!selectedAddressIdFlag) {
+                if (this.data.selectedAddressId) {
+                    if (data.list[i].id === this.data.selectedAddressId) {
+                        data.list[i].isActive = true;
+                        selectedAddressIdFlag = true;
+                    }
+                } else {
+                    if (data.list[i].def) {
+                        this.data.selectedAddressId = data.list[i].id;
+                        data.list[i].isActive = true;
+                        selectedAddressIdFlag = true;
+                    }
                 }
             }
-            if (!selectedAddressIdFlag) {
-                this.data.selectedAddressId = null;
-            }
         }
-
     }
-
 };
 $(function() {
     page.init();

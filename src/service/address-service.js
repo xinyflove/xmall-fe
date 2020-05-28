@@ -2,7 +2,7 @@
  * @Author: Peak Xin 
  * @Date: 2020-05-27 16:24:54 
  * @Last Modified by: Peak Xin
- * @Last Modified time: 2020-05-28 12:38:28
+ * @Last Modified time: 2020-05-28 15:23:09
  */
 
 'use strict';
@@ -46,11 +46,12 @@ var _address = {
         });
     },
     //删除收件人收货信息
-    deleteAddress: function(shippingId, resolve, reject) {
+    deleteAddress: function(shipId, resolve, reject) {
         _xm.request({
-            url: _xm.getServerUrl('/shipping/del.do'),
+            url: _xm.getServerUrl('/v1/ship/delete'),
             data: {
-                shippingId: shippingId
+                shipId: shipId,
+                token: _token
             },
             success: resolve,
             error: reject,
