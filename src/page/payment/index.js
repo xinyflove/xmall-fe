@@ -2,7 +2,7 @@
  * @Author: Peak Xin 
  * @Date: 2020-05-29 12:25:44 
  * @Last Modified by: Peak Xin
- * @Last Modified time: 2020-05-29 12:49:13
+ * @Last Modified time: 2020-05-29 15:13:30
  */
 
 'use strict';
@@ -27,7 +27,6 @@ var page = {
     //加载订单详情
     loadPaymentInfo: function() {
         var _this = this,
-            orderListHtml = '',
             $pageWrap = $('.page-wrap');
         $pageWrap.html('<div class="loading"></div>');
         _payment.getPaymentInfo(this.data.orderNo, function(res) {
