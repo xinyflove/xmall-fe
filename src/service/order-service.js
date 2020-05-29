@@ -2,7 +2,7 @@
  * @Author: Peak Xin 
  * @Date: 2020-05-27 16:23:19 
  * @Last Modified by: Peak Xin
- * @Last Modified time: 2020-05-28 16:04:19
+ * @Last Modified time: 2020-05-29 23:19:35
  */
 
 'use strict';
@@ -33,8 +33,9 @@ var _order = {
     },
     //获取订单列表
     getOrderList: function(listParam, resolve, reject) {
+        listParam.token = _token;
         _xm.request({
-            url: _xm.getServerUrl('/order/list.do'),
+            url: _xm.getServerUrl('/v1/order/list'),
             data: listParam,
             success: resolve,
             error: reject,
@@ -43,19 +44,22 @@ var _order = {
     //获取订单详情
     getOrderDetail: function(orderNo, resolve, reject) {
         _xm.request({
-            url: _xm.getServerUrl('/order/detail.do'),
+            url: _xm.getServerUrl('/v1/order/detail'),
             data: {
-                orderNo: orderNo
+                orderNo: orderNo,
+                token: _token
             },
             success: resolve,
             error: reject,
         });
     },
+    // 取消订单
     cancelOrder: function(orderNo, resolve, reject) {
         _xm.request({
-            url: _xm.getServerUrl('/order/cancel.do'),
+            url: _xm.getServerUrl('/v1/order/cancel'),
             data: {
-                orderNo: orderNo
+                orderNo: orderNo,
+                token: _token
             },
             success: resolve,
             error: reject,

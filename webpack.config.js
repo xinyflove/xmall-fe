@@ -2,7 +2,7 @@
  * @Author: Peak Xin 
  * @Date: 2020-03-07 21:11:27 
  * @Last Modified by: Peak Xin
- * @Last Modified time: 2020-05-29 14:21:50
+ * @Last Modified time: 2020-05-29 23:08:04
  */
 var webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
@@ -32,6 +32,7 @@ var config = {
         'cart': ['./src/page/cart/index.js'], // 购物车
         'order-confirm': ['./src/page/order-confirm/index.js'], // 订单确认
         'order-detail': ['./src/page/order-detail/index.js'], // 订单详情
+        'order-list': ['./src/page/order-list/index.js'], // 订单列表
         'payment': ['./src/page/payment/index.js'], // 订单支付
         'user-login': ['./src/page/user-login/index.js'], // 用户登录
         'user-register': ['./src/page/user-register/index.js'], // 用户注册
@@ -80,6 +81,7 @@ var config = {
         new HtmlWebpackPlugin(getHtmlConfig('cart', '购物车')),
         new HtmlWebpackPlugin(getHtmlConfig('order-confirm', '订单确认')),
         new HtmlWebpackPlugin(getHtmlConfig('order-detail', '订单详情')),
+        new HtmlWebpackPlugin(getHtmlConfig('order-list', '订单列表')),
         new HtmlWebpackPlugin(getHtmlConfig('payment', '订单支付')),
         new HtmlWebpackPlugin(getHtmlConfig('user-login', '用户登录')),
         new HtmlWebpackPlugin(getHtmlConfig('user-register', '用户注册')),

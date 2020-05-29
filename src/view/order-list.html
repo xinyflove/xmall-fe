@@ -4,8 +4,7 @@
 <head>
     <%= require('html-loader!./layout/head-common.html')%>
         <title>
-            <%= htmlWebpackPlugin.options.title%> | xmall电商平台
-        </title>
+            <%= htmlWebpackPlugin.options.title%> | xmall电商平台</title>
 </head>
 
 <body>
@@ -15,7 +14,7 @@
                 <div class="w">
                     <div class="crumb-con">
                         <a class="link" href="./index.html">
-                            XMall
+                    MMall
                 </a>
                         <span>></span>
                         <span class="link-text">
@@ -25,21 +24,18 @@
                 </div>
             </div>
             <div class="page-wrap w">
-                <div class="panel">
-                    <h1 class="panel-title">收获地址</h1>
-                    <div class="panel-body address-con">
-
+                <%= require('html-loader!./layout/nav-side.html')%>
+                    <div class="content with-nav">
+                        <div class="panel">
+                            <div class="panel-title">
+                                <%= htmlWebpackPlugin.options.title%>
+                            </div>
+                            <div class="panel-body">
+                                <div class="order-list-con"></div>
+                                <div class="pagination"></div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="panel">
-                    <h1 class="panel-title">商品清单</h1>
-                    <div class="panel-body product-con">
-
-                    </div>
-                </div>
-            </div>
-            <div class="model-wrap">
-
             </div>
             <%= require('html-loader!./layout/footer.html')%>
 </body>
